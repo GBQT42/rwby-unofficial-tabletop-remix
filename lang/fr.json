@@ -1,12 +1,12 @@
 {
   "RWBY": {
     "Ability": {
-      "Str": { "long": "Strength", "abbr": "str" },
-      "Con": { "long": "Constitution", "abbr": "con" },
-      "Dex": { "long": "Dexterity", "abbr": "dex" },
-      "Int": { "long": "Intelligence", "abbr": "int" },
-      "Wis": { "long": "Wisdom", "abbr": "wis" },
-      "Cha": { "long": "Charisma", "abbr": "cha" }
+      "For": { "long": "Force", "abbr": "FOR" },
+      "Dex": { "long": "Dexterite", "abbr": "DEX" },
+      "Cor": { "long": "Corps", "abbr": "COR" },
+      "Per": { "long": "Perception", "abbr": "PER" },
+      "Esp": { "long": "Esprit", "abbr": "ESP" },
+      "Dis": { "long": "Discipline", "abbr": "DIS" }
     },
     "SheetLabels": {
       "Actor": "rwby Actor Sheet",
