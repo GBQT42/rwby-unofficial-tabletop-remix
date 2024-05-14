@@ -1,0 +1,41 @@
+{
+    "Actor": {
+      "types": ["hunter"],
+      "templates": {
+        "background": {
+          "biography": "",
+          "hairColor": "blue"
+        },
+        "resources": {
+          "health": {
+            "min": 0,
+            "value": 10
+          },
+          "aura": {
+            "min": 0,
+            "value": 1
+          },
+          "capacity": {
+            "min": 0,
+            "value": 1
+          }
+        }
+      },
+      "hunter": {
+        "templates": ["background", "resources"],
+        "goodness": {
+          "value": 5,
+          "max": 10
+        }
+      }
+    },
+    "Item": {
+      "types": ["feat", "aura technique"],
+      "feat": {
+        "description": "The desc of a feat"
+      },
+      "aura technique": {
+        "description": "The desc of an Aura technique"
+      }
+    }
+    }

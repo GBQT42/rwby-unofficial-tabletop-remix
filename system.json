@@ -1,0 +1,15 @@
+{
+    "id": "rwby-unofficial-tabletop-remix",
+    "title": "RWBY Unofficial Tabletop - Zeph Remix",
+    "description": "A version of the RWBY Unofficial Tabletop by Andrew Diederich, with numerous houserules from Zephyr Heathcliff",
+    "version": "0.0.1",
+    "compatibility": {
+      "minimum": "11",
+      "verified": "11"
+    },
+    "authors": [
+      {
+        "name": "Nicolas Heutte"
+      }
+    ]
+}
