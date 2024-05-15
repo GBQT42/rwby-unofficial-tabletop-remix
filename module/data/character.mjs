@@ -17,7 +17,8 @@ export default class rwbyCharacter extends rwbyActorBase {
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.RWBY.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
         value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
-        label: new fields.StringField({ required: true, blank: true })
+        label: new fields.StringField({ required: true, blank: true }),
+        abbr: new fields.StringField({ required: true, blank: true })
       });
       return obj;
     }, {}));
@@ -30,6 +31,7 @@ export default class rwbyCharacter extends rwbyActorBase {
     for (const key in this.abilities) {
       // Handle ability label localization.
       this.abilities[key].label = game.i18n.localize(CONFIG.RWBY.abilities[key]) ?? key;
+      this.abilities[key].abbr = game.i18n.localize(CONFIG.RWBY.abilityAbbreviations[key]) ?? key;
     }
   }
 
