@@ -5,19 +5,19 @@ export const RWBY = {};
  * @type {Object}
  */
 RWBY.abilities = {
-  str: 'RWBY.Ability.Str.long',
+  for: 'RWBY.Ability.For.long',
   dex: 'RWBY.Ability.Dex.long',
-  con: 'RWBY.Ability.Con.long',
-  int: 'RWBY.Ability.Int.long',
-  wis: 'RWBY.Ability.Wis.long',
-  cha: 'RWBY.Ability.Cha.long',
+  cor: 'RWBY.Ability.Cor.long',
+  per: 'RWBY.Ability.Per.long',
+  esp: 'RWBY.Ability.Esp.long',
+  dis: 'RWBY.Ability.Dis.long',
 };
 
 RWBY.abilityAbbreviations = {
-  str: 'RWBY.Ability.Str.abbr',
+  for: 'RWBY.Ability.For.abbr',
   dex: 'RWBY.Ability.Dex.abbr',
-  con: 'RWBY.Ability.Con.abbr',
-  int: 'RWBY.Ability.Int.abbr',
-  wis: 'RWBY.Ability.Wis.abbr',
-  cha: 'RWBY.Ability.Cha.abbr',
+  cor: 'RWBY.Ability.Cor.abbr',
+  per: 'RWBY.Ability.Per.abbr',
+  esp: 'RWBY.Ability.Esp.abbr',
+  dis: 'RWBY.Ability.Dis.abbr',
 };
