@@ -17,7 +17,6 @@ export default class rwbyCharacter extends rwbyActorBase {
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.RWBY.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
         value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
-        mod: new fields.NumberField({ ...requiredInteger, initial: 0, min: 0 }),
         label: new fields.StringField({ required: true, blank: true })
       });
       return obj;
@@ -29,8 +28,6 @@ export default class rwbyCharacter extends rwbyActorBase {
   prepareDerivedData() {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (const key in this.abilities) {
-      // Calculate the modifier using d20 rules.
-      this.abilities[key].mod = Math.floor((this.abilities[key].value - 10) / 2);
       // Handle ability label localization.
       this.abilities[key].label = game.i18n.localize(CONFIG.RWBY.abilities[key]) ?? key;
     }

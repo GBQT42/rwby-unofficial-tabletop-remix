@@ -9,7 +9,11 @@ export default class rwbyActorBase extends foundry.abstract.TypeDataModel {
       value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
       max: new fields.NumberField({ ...requiredInteger, initial: 10 })
     });
-    schema.power = new fields.SchemaField({
+    schema.aura = new fields.SchemaField({
+      value: new fields.NumberField({ ...requiredInteger, initial: 5, min: 0 }),
+      max: new fields.NumberField({ ...requiredInteger, initial: 5 })
+    });
+    schema.capacity = new fields.SchemaField({
       value: new fields.NumberField({ ...requiredInteger, initial: 5, min: 0 }),
       max: new fields.NumberField({ ...requiredInteger, initial: 5 })
     });
