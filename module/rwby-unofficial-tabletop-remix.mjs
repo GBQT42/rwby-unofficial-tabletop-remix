@@ -31,7 +31,7 @@ Hooks.once('init', function () {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: '2d12 + @abilities.dex.value',
+    formula: '2d12 + @abilities.dex.value + @abilities.per.value',
     decimals: 2,
   };
 
@@ -49,7 +49,8 @@ Hooks.once('init', function () {
   CONFIG.Item.dataModels = {
     item: models.rwbyItem,
     feature: models.rwbyFeature,
-    spell: models.rwbySpell
+    spell: models.rwbySpell,
+    skill: models.rwbySkill
   }
 
   // Active Effects are never copied to the Actor,
@@ -68,6 +69,11 @@ Hooks.once('init', function () {
     makeDefault: true,
     label: 'RWBY.SheetLabels.Item',
   });
+
+//Auto expand rolls
+  Hooks.on("renderChatMessage", function (message,html){
+    html.find(`div.dice-tooltip`).css("display", "block")
+});
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();

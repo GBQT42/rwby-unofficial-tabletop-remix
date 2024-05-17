@@ -75,7 +75,7 @@
           <div class="abilities flexcol">
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-rollModifier="@abilities.{{key}}.value" data-secondAttribute="true" data-label="{{ability.abbr}}">{{ability.abbr}}</label>
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll-modifier="@abilities.{{key}}.value" data-secondAttribute="true" data-label="Ability check">{{ability.abbr}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
@@ -85,7 +85,7 @@
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-2">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
-          {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-features.hbs"}}
+          {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-skills.hbs"}}
         </section>
 
       </section>

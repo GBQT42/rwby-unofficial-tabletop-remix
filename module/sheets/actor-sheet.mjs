@@ -107,6 +107,7 @@ export class rwbyActorSheet extends ActorSheet {
       8: [],
       9: [],
     };
+    const skills = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -124,6 +125,8 @@ export class rwbyActorSheet extends ActorSheet {
         if (i.system.spellLevel != undefined) {
           spells[i.system.spellLevel].push(i);
         }
+      } else if (i.type === "skill") {
+        skills.push(i);
       }
     }
 
@@ -131,6 +134,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.gear = gear;
     context.features = features;
     context.spells = spells;
+    context.skills = skills;
   }
 
   /* -------------------------------------------- */
@@ -232,23 +236,25 @@ export class rwbyActorSheet extends ActorSheet {
         const item = this.actor.items.get(itemId);
         if (item) return item.roll();
       }
-    }
+    } else
 
-    // Handle rolls that supply the formula directly.
-    if (dataset.roll) {
-      let label = dataset.label ? `[ability] ${dataset.label}` : '';
-      let roll = new Roll(dataset.roll, this.actor.getRollData());
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: label,
-        rollMode: game.settings.get('core', 'rollMode'),
-      });
-      return roll;
-    }
-    // 
-    if (dataset.rollmodifier) {
-      return this.rwbyRollSimple(dataset);
-    }
+      // Handle rolls that supply the formula directly.
+      if (dataset.roll) {
+        let label = dataset.label ? `[ability] ${dataset.label}` : '';
+        let roll = new Roll(dataset.roll, this.actor.getRollData());
+        roll.toMessage({
+          speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+          flavor: label,
+          rollMode: game.settings.get('core', 'rollMode'),
+        });
+        return roll;
+      } else
+        // 
+        if (dataset.rollModifier) {
+          return this.rwbyRollSimple(dataset);
+        } else {
+          console.log("Unknown roll type.");
+        }
   }
 
 
@@ -257,11 +263,11 @@ export class rwbyActorSheet extends ActorSheet {
   async rwbyRollSimple(dataset) {
     console.log("Rolling a RWBY roll!");
 
-    let label = dataset.label ? `[ability] ${dataset.label}` : '';
-    let modifierString = dataset.rollmodifier;
-    let secondAttribute = (dataset.secondattribute==="true");
-    const template_data = {secondAttribute: secondAttribute};
-    const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs",template_data);
+    let label = dataset.label;
+    let modifierString = dataset.rollModifier;
+    let secondAttribute = (dataset.secondattribute === "true");
+    const template_data = { secondAttribute: secondAttribute };
+    const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs", template_data);
 
     let d = new Dialog({
       title: "Roll Dialog",
@@ -300,6 +306,11 @@ export class rwbyActorSheet extends ActorSheet {
   //See rwbyDoRoll for details on params
   rwbyRollParseFromHtml(html, modifierString, difficulty = 0, label = "RWBY roll") {
     let dialogModifier = html.find('input[name=\'roll.modifier.extra\']').val();
+    let extraAttribute = html.find('select[name=\'second.attribute\']').val();
+    if (extraAttribute) {
+      dialogModifier = extraAttribute + "+" + dialogModifier;
+      //label = label + " + " + extraAttribute;
+    }
     return this.rwbyDoRoll(modifierString + "+" + dialogModifier, difficulty, label);
   }
 
@@ -320,6 +331,7 @@ export class rwbyActorSheet extends ActorSheet {
     }
 
     let rollString = diceString + "+" + modifierString;
+    console.log("Rolling " + rollString);
     let roll = new Roll(rollString, this.actor.getRollData());
 
     roll.toMessage({

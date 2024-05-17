@@ -39,7 +39,7 @@ export default class rwbyCharacter extends rwbyActorBase {
     const data = {};
 
     // Copy the ability scores to the top level, so that rolls can use
-    // formulas like `@str.mod + 4`.
+    // formulas like `@str.value + 4`.
     if (this.abilities) {
       for (let [k,v] of Object.entries(this.abilities)) {
         data[k] = foundry.utils.deepClone(v);
