@@ -218,9 +218,12 @@ export class rwbyActorSheet extends ActorSheet {
    * @private
    */
   _onRoll(event) {
+
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
+
+    console.log("Rolling!" + dataset);
 
     // Handle item rolls.
     if (dataset.rollType) {
@@ -242,5 +245,88 @@ export class rwbyActorSheet extends ActorSheet {
       });
       return roll;
     }
+    // 
+    if (dataset.rollmodifier) {
+      return this.rwbyRollSimple(dataset);
+    }
+  }
+
+
+
+
+  async rwbyRollSimple(dataset) {
+    console.log("Rolling a RWBY roll!");
+
+    let label = dataset.label ? `[ability] ${dataset.label}` : '';
+    let modifierString = dataset.rollmodifier;
+    let secondAttribute = (dataset.secondattribute==="true");
+    const template_data = {secondAttribute: secondAttribute};
+    const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs",template_data);
+
+    let d = new Dialog({
+      title: "Roll Dialog",
+      content: dialogContent,
+      buttons: {
+        disav2: {
+          label: "Désavantage Majeur",
+          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, -2, label)
+        },
+        disav1: {
+          label: "Désavantage",
+          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, -1, label)
+        },
+        av1: {
+          label: "Avantage",
+          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 1, label)
+        },
+        av2: {
+          label: "Avantage Majeur",
+          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 2, label)
+        },
+        regular: {
+          label: "Normal",
+          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 0, label)
+        }
+      },
+      default: "regular",
+      render: html => console.log("Register interactivity in the rendered dialog"),
+      close: html => console.log("This always is logged no matter which option is chosen")
+    });
+    d.render(true);
+
+    return;
+  }
+
+  //See rwbyDoRoll for details on params
+  rwbyRollParseFromHtml(html, modifierString, difficulty = 0, label = "RWBY roll") {
+    let dialogModifier = html.find('input[name=\'roll.modifier.extra\']').val();
+    return this.rwbyDoRoll(modifierString + "+" + dialogModifier, difficulty, label);
+  }
+
+
+  /**
+   * 
+   * @param {String} modifierString A string containing a formula evaluating to a number in the context of a foundry roll, such as "@abilities.per.value + @abilities.dis.value + 3".
+   * @param {int} difficulty An int representing the difficulty/ease of the roll: -2 for major disadvantage, -1 for disadvantage, 0 for a regular roll, +1 for advantage and +2 for major advantage
+   * @param {String} label A name for the roll, as you want to display it
+   * @returns 
+   */
+  rwbyDoRoll(modifierString, difficulty = 0, label = "RWBY roll") {
+    let diceString = "2d12";
+    if (difficulty < 0) {
+      diceString = (2 - difficulty) + "d12kl2";
+    } else if (difficulty > 0) {
+      diceString = (2 + difficulty) + "d12kh2";
+    }
+
+    let rollString = diceString + "+" + modifierString;
+    let roll = new Roll(rollString, this.actor.getRollData());
+
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
+    return roll;
   }
 }
