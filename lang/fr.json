@@ -35,7 +35,9 @@
     "Item": {
       "item": "Item",
       "feature": "Feature",
-      "spell": "Spell"
+      "spell": "Spell",
+      "skill": "Skill",
+      "semblance": "Semblance"
     }
   }
 }

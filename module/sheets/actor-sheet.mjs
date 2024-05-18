@@ -108,6 +108,7 @@ export class rwbyActorSheet extends ActorSheet {
       9: [],
     };
     const skills = [];
+    const semblanceFeatures = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -127,6 +128,8 @@ export class rwbyActorSheet extends ActorSheet {
         }
       } else if (i.type === "skill") {
         skills.push(i);
+      } else if (i.type === "semblance") {
+        semblanceFeatures.push(i);
       }
     }
 
@@ -135,6 +138,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.features = features;
     context.spells = spells;
     context.skills = skills;
+    context.semblanceFeatures = semblanceFeatures;
   }
 
   /* -------------------------------------------- */
@@ -265,7 +269,7 @@ export class rwbyActorSheet extends ActorSheet {
 
     let label = dataset.label;
     let modifierString = dataset.rollModifier;
-    let secondAttribute = (dataset.secondattribute === "true");
+    let secondAttribute = (dataset.secondAttribute === "true");
     const template_data = { secondAttribute: secondAttribute };
     const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs", template_data);
 

@@ -30,6 +30,8 @@ export class rwbyItemSheet extends ItemSheet {
     // Return a single sheet for all item types.
     // return `${path}/item-sheet.hbs`;
 
+    console.log("Fetching template for item type:" + this.item.type);
+
     // Alternatively, you could use the following return statement to do a
     // unique item sheet by type, like `weapon-sheet.hbs`.
     return `${path}/item-${this.item.type}-sheet.hbs`;

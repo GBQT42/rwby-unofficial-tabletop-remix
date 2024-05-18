@@ -7,10 +7,10 @@
   },
   "Item": {
     "types": [
-      "item",
       "feature",
-      "spell",
-      "skill"
+      "skill",
+      "semblance",
+      "item"
     ]
   }
 }
