@@ -37,7 +37,8 @@
       "feature": "Feature",
       "spell": "Spell",
       "skill": "Skill",
-      "semblance": "Semblance"
+      "semblance": "Semblance",
+      "auraFeature": "Technique d'Aura"
     }
   }
 }

@@ -4,15 +4,7 @@
         <input type="text" name="roll.modifier.extra" id="roll.modifier.extra" value="0" data-dtype="Number" />
         {{#if secondAttribute}}
         <label for="roll.modifier.extra.attribute">Second attribute:</label>
-        <select name="second.attribute" id="second.attribute">
-            <option value="@abilities.for.value">FOR</option>
-            <option value="@abilities.dex.value">DEX</option>
-            <option value="@abilities.cor.value">COR</option>
-            <option value="@abilities.per.value">PER</option>
-            <option value="@abilities.esp.value">ESP</option>
-            <option value="@abilities.dis.value">DIS</option>
-            <option value="0">None</option>
-        </select>
+        {{>"systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/attribute-selector.hbs" id="second.attribute"}}
         {{/if}}
     </div>
 </div>

@@ -13,7 +13,7 @@ export default class rwbySemblanceFeature extends rwbyItemBase {
 
         
         schema.defaultAttr = new fields.StringField({ required: true, initial:""});
-        schema.modifier = new fields.NumberField({ ...requiredInteger, initial: 0 });
+        schema.rollModifier = new fields.NumberField({ ...requiredInteger, initial: 0 });
 
         return schema;
     }

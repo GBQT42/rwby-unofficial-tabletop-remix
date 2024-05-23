@@ -110,6 +110,7 @@ export class rwbyActorSheet extends ActorSheet {
     const skills = [];
     const semblanceFeatures = [];
     const auraFeatures = [];
+    const dusts = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -133,6 +134,8 @@ export class rwbyActorSheet extends ActorSheet {
         semblanceFeatures.push(i);
       } else if (i.type === "auraFeature") {
         auraFeatures.push(i);
+      } else if (i.type === "dust") {
+        dusts.push(i);
       } else {
         console.log("Unsupported type: " + i.type);
       }
@@ -145,6 +148,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.skills = skills;
     context.semblanceFeatures = semblanceFeatures;
     context.auraFeatures = auraFeatures;
+    context.dusts = dusts;
   }
 
   /* -------------------------------------------- */

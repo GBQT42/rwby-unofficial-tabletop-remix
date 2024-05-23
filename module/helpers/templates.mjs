@@ -13,9 +13,11 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-skills.hbs',
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-semblance.hbs',
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-aura.hbs',
+    'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-dust.hbs',
     // Item partials
     'systems/rwby-unofficial-tabletop-remix/templates/item/parts/item-effects.hbs',
     //Rolls
     'systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs',
+    'systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/attribute-selector.hbs',
   ]);
 };

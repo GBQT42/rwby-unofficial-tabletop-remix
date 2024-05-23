@@ -1,9 +1,9 @@
-//Intended to represent Aura techniques and the like.
+//Intended to represent both the Semblance itself and Semblance techniques
 
 
 import rwbyItemBase from "./item-base.mjs";
 
-export default class rwbyAuraFeature extends rwbyItemBase {
+export default class rwbyDust extends rwbyItemBase {
 
     static defineSchema() {
 
@@ -12,7 +12,7 @@ export default class rwbyAuraFeature extends rwbyItemBase {
         const schema = super.defineSchema();
 
         
-        schema.defaultAttr = new fields.StringField({ required: true, initial:""});
+        schema.attr = new fields.StringField({ required: true, initial:"@abilities.esp.value[@abilities.esp.abbr]"});
         schema.rollModifier = new fields.NumberField({ ...requiredInteger, initial: 0 });
 
         return schema;

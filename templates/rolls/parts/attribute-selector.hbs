@@ -1,0 +1,12 @@
+{{#if noheader}}
+{{else}}
+<select name="{{id}}" id="{{id}}" {{extra}}>
+    {{/if}}
+    <option value="@abilities.for.value[@abilities.for.abbr]">FOR</option>
+    <option value="@abilities.dex.value[@abilities.dex.abbr]">DEX</option>
+    <option value="@abilities.cor.value[@abilities.cor.abbr]">COR</option>
+    <option value="@abilities.per.value[@abilities.per.abbr]">PER</option>
+    <option value="@abilities.esp.value[@abilities.esp.abbr]">ESP</option>
+    <option value="@abilities.dis.value[@abilities.dis.abbr]">DIS</option>
+    <option value="0">None</option>
+</select>

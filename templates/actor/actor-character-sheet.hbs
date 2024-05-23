@@ -58,7 +58,8 @@
     <a class="item" data-tab="features">Features</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Esotérisme</a>
+    <a class="item" data-tab="semblance">Esotérisme</a>
+    <a class="item" data-tab="dusts">Dusts</a>
     <a class="item" data-tab="effects">Effects</a>
   </nav>
 
@@ -110,13 +111,20 @@
       {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-items.hbs"}}
     </div>
 
-    {{!-- Owned Spells Tab --}}
-    <div class="tab spells flexrow" data-group="primary" data-tab="spells">
+    {{!-- Owned Semblance Tab --}}
+    <div class="tab semblance flexrow" data-group="primary" data-tab="semblance">
       <div>
         {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-semblance.hbs"}}
       </div>
       <div>
         {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-aura.hbs"}}
+      </div>
+    </div>
+
+    {{!-- Owned Dusts Tab --}}
+    <div class="tab dusts flexrow" data-group="primary" data-tab="dusts">
+      <div>
+        {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-dust.hbs"}}
       </div>
     </div>
 

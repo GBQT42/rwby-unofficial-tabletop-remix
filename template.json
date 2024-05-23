@@ -11,7 +11,8 @@
       "skill",
       "semblance",
       "item",
-      "auraFeature"
+      "auraFeature",
+      "dust"
     ]
   }
 }
