@@ -10,3 +10,4 @@ export {default as rwbyFeature} from "./feature.mjs";
 export {default as rwbySpell} from "./spell.mjs";
 export {default as rwbySkill} from "./skill.mjs";
 export {default as rwbySemblanceFeature} from "./semblance.mjs";
+export {default as rwbyAuraFeature} from "./auraFeature.mjs";

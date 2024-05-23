@@ -12,6 +12,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-effects.hbs',
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-skills.hbs',
     'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-semblance.hbs',
+    'systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-aura.hbs',
     // Item partials
     'systems/rwby-unofficial-tabletop-remix/templates/item/parts/item-effects.hbs',
     //Rolls

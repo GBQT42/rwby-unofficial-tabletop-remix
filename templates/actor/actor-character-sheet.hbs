@@ -77,9 +77,12 @@
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
-                data-roll-modifier="@abilities.{{key}}.value" data-second-attribute="true"
+                data-roll-modifier="@abilities.{{key}}.value[@abilities.{{key}}.abbr]" data-second-attribute="true"
                 data-label="Ability check">{{ability.abbr}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
+              <label class="resource-label rollable flexlarge"
+                data-roll-modifier="@abilities.{{key}}.value[@abilities.{{key}}.abbr] + @abilities.dis.value[DIS]" data-second-attribute="false"
+                data-label="Ability check">Save!</label>
             </div>
             {{/each}}
           </div>
@@ -113,7 +116,7 @@
         {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-semblance.hbs"}}
       </div>
       <div>
-        {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-semblance.hbs"}}
+        {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-aura.hbs"}}
       </div>
     </div>
 

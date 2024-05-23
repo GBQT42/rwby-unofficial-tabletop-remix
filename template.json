@@ -10,7 +10,8 @@
       "feature",
       "skill",
       "semblance",
-      "item"
+      "item",
+      "auraFeature"
     ]
   }
 }

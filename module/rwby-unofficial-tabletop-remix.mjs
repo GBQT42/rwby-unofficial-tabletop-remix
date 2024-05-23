@@ -51,7 +51,8 @@ Hooks.once('init', function () {
     feature: models.rwbyFeature,
     spell: models.rwbySpell,
     skill: models.rwbySkill,
-    semblance: models.rwbySemblanceFeature
+    semblance: models.rwbySemblanceFeature,
+    auraFeature: models.rwbyAuraFeature
   }
 
   // Active Effects are never copied to the Actor,

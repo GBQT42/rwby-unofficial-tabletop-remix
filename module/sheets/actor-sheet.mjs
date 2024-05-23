@@ -109,6 +109,7 @@ export class rwbyActorSheet extends ActorSheet {
     };
     const skills = [];
     const semblanceFeatures = [];
+    const auraFeatures = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -130,6 +131,10 @@ export class rwbyActorSheet extends ActorSheet {
         skills.push(i);
       } else if (i.type === "semblance") {
         semblanceFeatures.push(i);
+      } else if (i.type === "auraFeature") {
+        auraFeatures.push(i);
+      } else {
+        console.log("Unsupported type: " + i.type);
       }
     }
 
@@ -139,6 +144,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.spells = spells;
     context.skills = skills;
     context.semblanceFeatures = semblanceFeatures;
+    context.auraFeatures = auraFeatures;
   }
 
   /* -------------------------------------------- */
