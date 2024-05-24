@@ -1,0 +1,45 @@
+{{#*inline "defense"}}
+<div>
+    <label class="resource-label rollable flexlarge align-left" data-roll-modifier="{{modifierFormula}}">
+        {{name}}
+    </label>
+</div>
+{{/inline}}
+
+
+<section class="grid grid-3col">
+
+    {{!-- Defense sidebar --}}
+    <aside class="sidebar">
+        <ol class="items-list effects-list">
+            <li>
+                <header class='item flexrow items-header'>Défenses</header>
+            </li>
+            <li>
+                {{> defense name="Parry" modifierFormula="@abilities.per.rollableModifier +
+                @abilities.for.rollableModifier"}}
+            </li>
+            <li>
+                {{> defense name="Dodge" modifierFormula="@abilities.per.rollableModifier +
+                @abilities.dex.rollableModifier"}}
+            </li>
+            <li>
+                {{> defense name="Resist" modifierFormula="@abilities.per.rollableModifier +
+                @abilities.cor.rollableModifier"}}
+            </li>
+            <li>
+                {{> defense name="Semblance" modifierFormula="@abilities.per.rollableModifier +
+                @abilities.esp.rollableModifier"}}
+            </li>
+            <li>
+                {{> defense name="Dust" modifierFormula="@abilities.per.rollableModifier +
+                @abilities.dis.rollableModifier"}}
+            </li>
+        </ol>
+
+    </aside>
+    <div>
+        {{!-- Weapon features --}}
+        <label>Under construction</label>
+    </div>
+</section>
