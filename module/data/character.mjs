@@ -32,6 +32,7 @@ export default class rwbyCharacter extends rwbyActorBase {
       // Handle ability label localization.
       this.abilities[key].label = game.i18n.localize(CONFIG.RWBY.abilities[key]) ?? key;
       this.abilities[key].abbr = game.i18n.localize(CONFIG.RWBY.abilityAbbreviations[key]) ?? key;
+      this.abilities[key].rollableModifier = this.abilities[key].value + "[" + this.abilities[key].abbr + "]";
     }
   }
 
@@ -41,7 +42,7 @@ export default class rwbyCharacter extends rwbyActorBase {
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.value + 4`.
     if (this.abilities) {
-      for (let [k,v] of Object.entries(this.abilities)) {
+      for (let [k, v] of Object.entries(this.abilities)) {
         data[k] = foundry.utils.deepClone(v);
       }
     }

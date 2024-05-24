@@ -77,7 +77,7 @@
           <div class="abilities flexcol">
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left"
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{ability.label}}"
                 data-roll-modifier="@abilities.{{key}}.value[@abilities.{{key}}.abbr]" data-second-attribute="true"
                 data-label="Ability check">{{ability.abbr}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />

@@ -322,10 +322,13 @@ export class rwbyActorSheet extends ActorSheet {
     let dialogModifier = html.find('input[name=\'roll.modifier.extra\']').val();
     let extraAttribute = html.find('select[name=\'second.attribute\']').val();
     if (extraAttribute) {
-      dialogModifier = extraAttribute + "+" + dialogModifier;
+      modifierString = modifierString + "+" + extraAttribute;
       //label = label + " + " + extraAttribute;
     }
-    return this.rwbyDoRoll(modifierString + "+" + dialogModifier, difficulty, label);
+    if (dialogModifier != "0" && dialogModifier != "") {
+      modifierString = modifierString + "+" + dialogModifier + "[Mod]"
+    }
+    return this.rwbyDoRoll(modifierString, difficulty, label);
   }
 
 
