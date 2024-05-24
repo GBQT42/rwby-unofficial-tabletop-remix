@@ -265,7 +265,7 @@ export class rwbyActorSheet extends ActorSheet {
       } else
         // 
         if (dataset.rollModifier) {
-          return this.rwbyRollSimple(dataset);
+          return this.rwbyRollSimple(dataset, event.ctrlKey);
         } else {
           console.log("Unknown roll type.");
         }
@@ -274,7 +274,7 @@ export class rwbyActorSheet extends ActorSheet {
 
 
 
-  async rwbyRollSimple(dataset) {
+  async rwbyRollSimple(dataset, skipDialog=false) {
     console.log("Rolling a RWBY roll!");
 
     let label = dataset.label;
@@ -283,7 +283,13 @@ export class rwbyActorSheet extends ActorSheet {
     const template_data = { secondAttribute: secondAttribute };
     const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs", template_data);
 
-    let d = new Dialog({
+    if(skipDialog){
+      if(secondAttribute){
+        ui.notifications.warn("Skipping secondary attribute selection");
+      }
+      this.rwbyDoRoll(modifierString,0,label);
+    } else{
+       let d = new Dialog({
       title: "Roll Dialog",
       content: dialogContent,
       buttons: {
@@ -313,6 +319,10 @@ export class rwbyActorSheet extends ActorSheet {
       close: html => console.log("This always is logged no matter which option is chosen")
     });
     d.render(true);
+    
+
+    }
+   
 
     return;
   }
