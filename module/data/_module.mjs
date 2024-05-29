@@ -12,3 +12,4 @@ export {default as rwbySkill} from "./skill.mjs";
 export {default as rwbySemblanceFeature} from "./semblance.mjs";
 export {default as rwbyAuraFeature} from "./auraFeature.mjs";
 export {default as rwbyDust} from "./dust.mjs";
+export {default as rwbyCombatFeature} from "./combatFeature.mjs";
