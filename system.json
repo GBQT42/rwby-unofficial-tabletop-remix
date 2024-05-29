@@ -1,7 +1,7 @@
 {
   "id": "rwby-unofficial-tabletop-remix",
   "title": "RWBY Unofficial Tabletop - Zeph Remix",
-  "description": "The RWBY Unofficial Tabletop - Zeph Remix system for FoundryVTT!",
+  "description": "The RWBY Unofficial Tabletop - Zeph Remix system for FoundryVTT.",
   "authors": [
     {
       "name": "Asacolips",
@@ -10,6 +10,10 @@
     {
       "name": "Lee Talman",
       "discord": ".pizzaWizard"
+    },
+    {
+      "name": "Nicolas Heutte",
+      "discord": "gbqt"
     }
   ],
   "url": "Replace this with a link to your public repository",
@@ -24,13 +28,17 @@
       "thumbnail": "systems/rwby-unofficial-tabletop-remix/assets/anvil-impact.png"
     }
   ],
-  "version": "2.0.0",
+  "version": "0.1.0",
   "compatibility": {
     "minimum": 11,
     "verified": "11.315"
   },
-  "esmodules": ["module/rwby-unofficial-tabletop-remix.mjs"],
-  "styles": ["css/rwby-unofficial-tabletop-remix.css"],
+  "esmodules": [
+    "module/rwby-unofficial-tabletop-remix.mjs"
+  ],
+  "styles": [
+    "css/rwby-unofficial-tabletop-remix.css"
+  ],
   "languages": [
     {
       "lang": "fr",
@@ -38,8 +46,27 @@
       "path": "lang/fr.json"
     }
   ],
-  "packs": [],
-  "packFolders": [],
+  "packs": [
+    {
+      "name": "basics",
+      "label": "RWBY Basics",
+      "system": "rwby-unofficial-tabletop-remix",
+      "module": "rwby-unofficial-tabletop-remix",
+      "path": "packs/basics",
+      "entity": "Item",
+      "type": "Item"
+    }
+  ],
+  "packFolders": [
+    {
+      "name": "RWBY Content",
+      "sorting": "m",
+      "color": "#cd2c1e",
+      "packs": [
+        "basics"
+      ]
+    }
+  ],
   "socket": false,
   "manifest": "Replace this with a link to the /latest release system.json so people can receive updates after they've installed the system",
   "download": "This must link to a .zip file of the current version",
