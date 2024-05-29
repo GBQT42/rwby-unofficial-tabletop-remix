@@ -111,6 +111,7 @@ export class rwbyActorSheet extends ActorSheet {
     const semblanceFeatures = [];
     const auraFeatures = [];
     const dusts = [];
+    const combatFeatures = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -136,6 +137,8 @@ export class rwbyActorSheet extends ActorSheet {
         auraFeatures.push(i);
       } else if (i.type === "dust") {
         dusts.push(i);
+      } else if (i.type === "combatFeature") {
+        combatFeatures.push(i);
       } else {
         console.log("Unsupported type: " + i.type);
       }
@@ -149,6 +152,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.semblanceFeatures = semblanceFeatures;
     context.auraFeatures = auraFeatures;
     context.dusts = dusts;
+    context.combatFeatures = combatFeatures;
   }
 
   /* -------------------------------------------- */
@@ -252,7 +256,7 @@ export class rwbyActorSheet extends ActorSheet {
 
       // Handle rolls that supply the formula directly.
       if (dataset.roll) {
-        let label = dataset.label ? `[ability] ${dataset.label}` : '';
+        let label = dataset.label ? `${dataset.label}` : '';
         let roll = new Roll(dataset.roll, this.actor.getRollData());
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),

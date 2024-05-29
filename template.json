@@ -12,7 +12,8 @@
       "semblance",
       "item",
       "auraFeature",
-      "dust"
+      "dust",
+      "combatFeature"
     ]
   }
 }
