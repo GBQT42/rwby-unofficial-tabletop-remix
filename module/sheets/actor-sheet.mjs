@@ -241,8 +241,6 @@ export class rwbyActorSheet extends ActorSheet {
     const element = event.currentTarget;
     const dataset = element.dataset;
 
-    console.log("Rolling!" + dataset);
-
     // Handle item rolls.
     if (dataset.rollType) {
       if (dataset.rollType == 'item') {
@@ -314,9 +312,7 @@ export class rwbyActorSheet extends ActorSheet {
           callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 0, label)
         }
       },
-      default: "regular",
-      render: html => console.log("Register interactivity in the rendered dialog"),
-      close: html => console.log("This always is logged no matter which option is chosen")
+      default: "regular"
     });
     d.render(true);
     
