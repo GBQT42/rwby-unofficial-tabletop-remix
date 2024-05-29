@@ -2,7 +2,7 @@
   "RWBY": {
     "Ability": {
       "For": { "long": "Force", "abbr": "FOR" },
-      "Dex": { "long": "Dexterite", "abbr": "DEX" },
+      "Dex": { "long": "Dextérité", "abbr": "DEX" },
       "Cor": { "long": "Corps", "abbr": "COR" },
       "Per": { "long": "Perception", "abbr": "PER" },
       "Esp": { "long": "Esprit", "abbr": "ESP" },
