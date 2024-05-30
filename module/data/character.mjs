@@ -11,6 +11,8 @@ export default class rwbyCharacter extends rwbyActorBase {
       level: new fields.SchemaField({
         value: new fields.NumberField({ ...requiredInteger, initial: 1 })
       }),
+      totalXP: new fields.NumberField({ ...requiredInteger, initial:0}),
+      spentXP: new fields.NumberField({ ...requiredInteger, initial:0})
     });
 
     // Iterate over ability names and create a new SchemaField for each.

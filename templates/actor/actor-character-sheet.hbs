@@ -8,7 +8,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-4col">
+      <div class="resources grid grid-3col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -37,6 +37,22 @@
             <input type="text" name="system.capacity.value" value="{{system.capacity.value}}" data-dtype="Number" />
             <span> / </span>
             <input type="text" name="system.capacity.max" value="{{system.capacity.max}}" data-dtype="Number" />
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.attributes.spentXP" class="resource-label">Spent XP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.spentXP" value="{{system.attributes.spentXP}}"
+              data-dtype="Number" />
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.attributes.totalXP" class="resource-label">Total XP</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.attributes.totalXP" value="{{system.attributes.totalXP}}"
+              data-dtype="Number" />
           </div>
         </div>
 
