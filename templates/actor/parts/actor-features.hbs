@@ -1,46 +1,32 @@
 <ol class='items-list'>
   <li class='item flexrow items-header'>
-    <div class='item-name'>{{localize 'Dons'}}</div>
+    <div class='item-name'>{{localize 'Modifications'}}</div>
     <div class='item-controls'>
-      <a
-        class='item-control item-create'
-        title='Create item'
-        data-type='feature'
-      >
+      <a class='item-control item-create' style="white-space: nowrap; flex-basis:content" title='Create item'
+        data-type='feature'>
         <i class='fas fa-plus'></i>
-        {{localize 'Nouveau Don'}}
+        {{localize 'Nouvelle Modification'}}
       </a>
     </div>
   </li>
   {{#each features as |item id|}}
-    <li class='item flexrow' data-item-id='{{item._id}}'>
-      <div class='item-name'>
-        <div class='item-image'>
-          <a class='rollable' data-roll-type='item'>
-            <img
-              src='{{item.img}}'
-              title='{{item.name}}'
-              width='24'
-              height='24'
-            />
-          </a>
-        </div>
-        <h4>{{item.name}}</h4>
-      </div>
-      <div class='item-controls'>
-        <a
-          class='item-control item-edit'
-          title='{{localize "DOCUMENT.Edit" type='feature'}}'
-        >
-          <i class='fas fa-edit'></i>
-        </a>
-        <a
-          class='item-control item-delete'
-          title='{{localize "DOCUMENT.Delete" type='feature'}}'
-        >
-          <i class='fas fa-trash'></i>
+  <li class='item flexrow' data-item-id='{{item._id}}'>
+    <div class='item-name'>
+      <div class='item-image'>
+        <a class='rollable' data-roll-type='item'>
+          <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
         </a>
       </div>
-    </li>
+      <h4>{{item.name}}</h4>
+    </div>
+    <div class='item-controls'>
+      <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type=' feature'}}'>
+        <i class='fas fa-edit'></i>
+      </a>
+      <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' feature'}}'>
+        <i class='fas fa-trash'></i>
+      </a>
+    </div>
+  </li>
   {{/each}}
 </ol>
