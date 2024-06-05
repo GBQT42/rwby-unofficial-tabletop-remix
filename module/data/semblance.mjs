@@ -14,6 +14,7 @@ export default class rwbySemblanceFeature extends rwbyItemBase {
         
         schema.defaultAttr = new fields.StringField({ required: true, initial:""});
         schema.rollModifier = new fields.NumberField({ ...requiredInteger, initial: 0 });
+        schema.damageRoll = new fields.StringField({ initial: "" });
 
         return schema;
     }
