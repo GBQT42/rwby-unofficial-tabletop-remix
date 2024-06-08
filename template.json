@@ -13,7 +13,8 @@
       "item",
       "auraFeature",
       "dust",
-      "combatFeature"
+      "combatFeature",
+      "defense"
     ]
   }
 }
