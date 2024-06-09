@@ -36,6 +36,7 @@ export default class rwbyCharacter extends rwbyActorBase {
       this.abilities[key].abbr = game.i18n.localize(CONFIG.RWBY.abilityAbbreviations[key]) ?? key;
       this.abilities[key].rollableModifier = this.abilities[key].value + "[" + this.abilities[key].abbr + "]";
     }
+    this.attributes.level.value = Math.floor(this.attributes.totalXP / 100);
   }
 
   getRollData() {
