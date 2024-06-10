@@ -71,8 +71,8 @@
   "manifest": "https://raw.githubusercontent.com/GBQT42/rwby-unofficial-tabletop-remix/main/system.json",
   "download": "https://github.com/GBQT42/rwby-unofficial-tabletop-remix/archive/refs/heads/main.zip",
   "background": "systems/rwby-unofficial-tabletop-remix/assets/anvil-impact.png",
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "gridDistance": 1,
+  "gridUnits": "m",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "aura"
 }
