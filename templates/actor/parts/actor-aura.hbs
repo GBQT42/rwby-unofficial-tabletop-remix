@@ -17,7 +17,7 @@
           <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
         </a>
       </div>
-      <h4 class="flexlarge">{{item.name}}</h4>
+      <h4 class="flexlarge rollable" data-roll-type="item">{{item.name}}</h4>
       {{#if item.system.damageRoll}}
       <div class='item-image'>
         <a class='rollable' data-roll='{{item.system.damageRoll}}' data-label="{{item.name}} secondary roll">
