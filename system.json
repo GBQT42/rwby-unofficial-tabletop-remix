@@ -4,15 +4,7 @@
   "description": "The RWBY Unofficial Tabletop - Zeph Remix system for FoundryVTT.",
   "authors": [
     {
-      "name": "Asacolips",
-      "discord": "asacolips"
-    },
-    {
-      "name": "Lee Talman",
-      "discord": ".pizzaWizard"
-    },
-    {
-      "name": "Nicolas Heutte",
+      "name": "GBQT",
       "discord": "gbqt"
     }
   ],
@@ -28,10 +20,10 @@
       "thumbnail": "systems/rwby-unofficial-tabletop-remix/assets/anvil-impact.png"
     }
   ],
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": {
     "minimum": 11,
-    "verified": "11.315"
+    "verified": "12.327"
   },
   "esmodules": [
     "module/rwby-unofficial-tabletop-remix.mjs"
@@ -71,8 +63,10 @@
   "manifest": "https://raw.githubusercontent.com/GBQT42/rwby-unofficial-tabletop-remix/main/system.json",
   "download": "https://github.com/GBQT42/rwby-unofficial-tabletop-remix/archive/refs/heads/main.zip",
   "background": "systems/rwby-unofficial-tabletop-remix/assets/anvil-impact.png",
-  "gridDistance": 1,
-  "gridUnits": "m",
+  "grid": {
+    "distance": 1,
+    "units": "m"
+  },
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "aura"
 }
