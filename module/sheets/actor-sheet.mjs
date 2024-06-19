@@ -261,55 +261,61 @@ export class rwbyActorSheet extends ActorSheet {
 
 
 
-  async rwbyRollSimple(dataset, skipDialog=false) {
+  async rwbyRollSimple(dataset, skipDialog = false) {
     console.log("Rolling a RWBY roll!");
 
     let label = dataset.label;
     let modifierString = dataset.rollModifier;
+    let nativeDifficulty = dataset.nativeDifficulty ? Number(dataset.nativeDifficulty) : 0;
     let secondAttribute = (dataset.secondAttribute === "true");
     const template_data = { secondAttribute: secondAttribute };
     const dialogContent = await renderTemplate("systems/rwby-unofficial-tabletop-remix/templates/rolls/parts/roll-dialog-content.hbs", template_data);
 
-    if(skipDialog){
-      if(secondAttribute){
+    if (skipDialog) {
+      if (secondAttribute) {
         ui.notifications.warn("Skipping secondary attribute selection");
       }
-      this.rwbyDoRoll(modifierString,0,label);
-    } else{
-       let d = new Dialog({
-      title: "Roll Dialog",
-      content: dialogContent,
-      buttons: {
-        disav2: {
-          label: "Désavantage Majeur",
-          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, -2, label)
+      this.rwbyDoRoll(modifierString, 0, label);
+    } else {
+      let d = new Dialog({
+        title: "Roll Dialog",
+        content: dialogContent,
+        buttons: {
+          disav2: {
+            label: "Désavantage Majeur",
+            callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, this.rwbyClampDiff(nativeDifficulty - 2), label)
+          },
+          disav1: {
+            label: "Désavantage",
+            callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, this.rwbyClampDiff(nativeDifficulty - 1), label)
+          },
+          av1: {
+            label: "Avantage",
+            callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, this.rwbyClampDiff(nativeDifficulty + 1), label)
+          },
+          av2: {
+            label: "Avantage Majeur",
+            callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, this.rwbyClampDiff(nativeDifficulty + 2), label)
+          },
+          regular: {
+            label: "Normal",
+            callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, this.rwbyClampDiff(nativeDifficulty + 0), label)
+          }
         },
-        disav1: {
-          label: "Désavantage",
-          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, -1, label)
-        },
-        av1: {
-          label: "Avantage",
-          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 1, label)
-        },
-        av2: {
-          label: "Avantage Majeur",
-          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 2, label)
-        },
-        regular: {
-          label: "Normal",
-          callback: (html) => this.rwbyRollParseFromHtml(html, modifierString, 0, label)
-        }
-      },
-      default: "regular"
-    });
-    d.render(true);
-    
+        default: "regular"
+      });
+      d.render(true);
+
 
     }
-   
+
 
     return;
+  }
+
+
+  rwbyClampDiff(difficulty) {
+    return Math.min(2,  Math.max(-2,difficulty));
   }
 
   //See rwbyDoRoll for details on params

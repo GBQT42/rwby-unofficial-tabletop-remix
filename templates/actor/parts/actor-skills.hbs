@@ -10,7 +10,7 @@
   </li>
   {{#each skills as |item id|}}
   <li class='item flexrow' data-item-id='{{item._id}}'>
-    <a class='rollable item-image' style="flex-grow: 0; flex-basis: auto;" data-roll-modifier="{{item.system.rollModifier}}"
+    <a class='rollable item-image' style="flex-grow: 0; flex-basis: auto;" data-roll-modifier="{{item.system.rollModifier}}" data-native-difficulty="{{item.system.nativeDifficulty}}"
       data-label="{{item.name}} skill check">
       <img src='{{item.img}}' title='{{item.name}}' width='24' height='24' />
     </a>
