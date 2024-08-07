@@ -275,7 +275,7 @@ export class rwbyActorSheet extends ActorSheet {
       if (secondAttribute) {
         ui.notifications.warn("Skipping secondary attribute selection");
       }
-      this.rwbyDoRoll(modifierString, 0, label);
+      this.rwbyDoRoll(modifierString, nativeDifficulty, label);
     } else {
       let d = new Dialog({
         title: "Roll Dialog",
