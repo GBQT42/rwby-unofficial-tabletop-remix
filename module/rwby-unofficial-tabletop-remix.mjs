@@ -43,6 +43,7 @@ Hooks.once('init', function () {
   // with the Character/NPC as part of super.defineSchema()
   CONFIG.Actor.dataModels = {
     character: models.rwbyCharacter,
+    opponent: models.rwbyCharacter,
     npc: models.rwbyNPC
   }
   CONFIG.Item.documentClass = rwbyItem;
