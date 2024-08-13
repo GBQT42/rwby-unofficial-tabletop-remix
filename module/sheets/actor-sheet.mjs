@@ -26,7 +26,11 @@ export class rwbyActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
+    if (this.actor.type == "opponent") {
+    return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-character-sheet.hbs`;
+    } else {
     return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-${this.actor.type}-sheet.hbs`;
+    }
   }
 
   /* -------------------------------------------- */
