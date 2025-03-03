@@ -14,3 +14,4 @@ export {default as rwbyAuraFeature} from "./auraFeature.mjs";
 export {default as rwbyDust} from "./dust.mjs";
 export {default as rwbyCombatFeature} from "./combatFeature.mjs";
 export {default as rwbyDefense} from "./defense.mjs";
+export {default as rwbySave} from "./save.mjs";

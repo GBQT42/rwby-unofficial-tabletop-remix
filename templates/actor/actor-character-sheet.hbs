@@ -98,9 +98,6 @@
                 title="{{ability.label}}" data-roll-modifier="@abilities.{{key}}.value[@abilities.{{key}}.abbr]"
                 data-second-attribute="true" data-label="{{ability.abbr}} ability check">{{ability.abbr}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number" />
-              <label class="resource-label rollable flexlarge"
-                data-roll-modifier="@abilities.{{key}}.value[@abilities.{{key}}.abbr] + @abilities.dis.value[DIS]"
-                data-second-attribute="false" data-label="{{ability.abbr}} save">Save!</label>
             </div>
             {{/each}}
           </div>

@@ -105,6 +105,7 @@ export class rwbyActorSheet extends ActorSheet {
     const dusts = [];
     const combatFeatures = [];
     const defenses = [];
+    const saves = [];
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -128,6 +129,8 @@ export class rwbyActorSheet extends ActorSheet {
         combatFeatures.push(i);
       } else if (i.type === "defense") {
         defenses.push(i);
+      } else if (i.type === "save") {
+        saves.push(i);
       } else {
         console.log("Unsupported type: " + i.type);
       }
@@ -142,6 +145,7 @@ export class rwbyActorSheet extends ActorSheet {
     context.dusts = dusts;
     context.combatFeatures = combatFeatures;
     context.defenses = defenses;
+    context.saves = saves;
   }
 
   /* -------------------------------------------- */

@@ -14,7 +14,8 @@
       "auraFeature",
       "dust",
       "combatFeature",
-      "defense"
+      "defense",
+      "save"
     ]
   }
 }
