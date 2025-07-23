@@ -37,7 +37,7 @@ export default class rwbyCharacter extends rwbyActorBase {
       this.abilities[key].rollableModifier = this.abilities[key].value + "[" + this.abilities[key].abbr + "]";
       this.abilities[key].rollableAdvModifier = Math.ceil(this.abilities[key].value/2) + "[MA " + this.abilities[key].abbr + "]";
     }
-    this.attributes.level.value = Math.floor(this.attributes.totalXP / 100);
+    this.attributes.level.value = Math.floor(this.attributes.totalXP / 10);
   }
 
   getRollData() {
