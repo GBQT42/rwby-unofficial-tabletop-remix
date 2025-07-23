@@ -12,7 +12,7 @@
 
     <div style="flex: 1;">
         <ol class='items-list'>
-        {{!-- Defenses --}}
+            {{!-- Defenses --}}
             <li class='item flexrow items-header'>
                 <div class='item-name'>{{localize 'Defenses'}}</div>
                 <div class='item-controls'>
@@ -34,16 +34,16 @@
                     <h4 class="flexlarge rollable" data-roll-type="item">{{item.name}}</h4>
                 </div>
                 <div class='item-controls'>
-                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='defense'}}'>
+                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type=' defense'}}'>
                         <i class='fas fa-edit'></i>
                     </a>
-                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='defense'}}'>
+                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' defense'}}'>
                         <i class='fas fa-trash'></i>
                     </a>
                 </div>
             </li>
             {{/each}}
-        {{!-- Saves --}}
+            {{!-- Saves --}}
             <li class='item flexrow items-header'>
                 <div class='item-name'>{{localize 'Saves'}}</div>
                 <div class='item-controls'>
@@ -65,10 +65,10 @@
                     <h4 class="flexlarge rollable" data-roll-type="item">{{item.name}}</h4>
                 </div>
                 <div class='item-controls'>
-                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='save'}}'>
+                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type=' save'}}'>
                         <i class='fas fa-edit'></i>
                     </a>
-                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='save'}}'>
+                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' save'}}'>
                         <i class='fas fa-trash'></i>
                     </a>
                 </div>
@@ -102,16 +102,18 @@
                     <div class='item-image'>
                         <a class='rollable' data-roll='{{item.system.damageRoll}}'
                             data-label="{{item.name}} damage roll">
-                            <img src='systems\rwby-unofficial-tabletop-remix\assets\Icon_damage.webp' title='{{item.name}} damage roll' width='24' height='24' />
+                            <img src='systems\rwby-unofficial-tabletop-remix\assets\Icon_damage.webp'
+                                title='{{item.name}} damage roll' width='24' height='24' />
                         </a>
                     </div>
                     {{/if}}
                 </div>
+    {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-feature-uses-quick-display.hbs" item=item id=id}}
                 <div class='item-controls'>
-                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type='combatFeature'}}'>
+                    <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type=' combatFeature'}}'>
                         <i class='fas fa-edit'></i>
                     </a>
-                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type='combatFeature'}}'>
+                    <a class='item-control item-delete' title='{{localize "DOCUMENT.Delete" type=' combatFeature'}}'>
                         <i class='fas fa-trash'></i>
                     </a>
                 </div>

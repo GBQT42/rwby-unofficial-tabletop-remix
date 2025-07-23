@@ -12,10 +12,22 @@
       "Actor": "rwby Actor Sheet",
       "Item": "rwby Item Sheet"
     },
-    "Item": {
-      "Spell": {
-        "SpellLVL": "Level {level} Spells",
-        "AddLVL": "Add LVL {level}"
+    "Sheet": {
+      "XP": {
+        "Spent": "Clues restants",
+        "Total": "Clues totaux",
+        "Level": "Niveau"
+      },
+      "Resources": {
+        "HP": "Santé",
+        "Aura": "Santé Mentale",
+        "Capacity": "Fatigue"
+      },
+      "Categories": {
+        "Esoterism": "Esotérisme",
+        "Semblance": "Curiosité",
+        "Dusts": "Traumas",
+        "Feats": "Capacités"
       }
     },
     "Effect": {

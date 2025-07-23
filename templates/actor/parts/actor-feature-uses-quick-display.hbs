@@ -1,0 +1,12 @@
+{{#if system.maxUses}}
+
+{{log "item" item}}
+{{log "id" id}}
+
+<div class='item flexrow'>
+    <input type="text" name="system.uses" value="{{item.system.uses}}" data-dtype="Number" disabled/>
+    <span>/</span>
+    <input type="text" name="system.maxUses" value="{{item.system.maxUses}}" data-dtype="Number" disabled/>
+</div>
+
+{{/if}}

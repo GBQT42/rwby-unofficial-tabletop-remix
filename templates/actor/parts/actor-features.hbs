@@ -1,3 +1,4 @@
+{{log "features" features}}
 <ol class='items-list'>
   <li class='item flexrow items-header'>
     <div class='item-name'>{{localize 'Modifications'}}</div>
@@ -19,6 +20,7 @@
       </div>
       <h4 class="rollable" data-roll-type="item">{{item.name}}</h4>
     </div>
+    {{> "systems/rwby-unofficial-tabletop-remix/templates/actor/parts/actor-feature-uses-quick-display.hbs" item=item id=id}}
     <div class='item-controls'>
       <a class='item-control item-edit' title='{{localize "DOCUMENT.Edit" type=' feature'}}'>
         <i class='fas fa-edit'></i>
