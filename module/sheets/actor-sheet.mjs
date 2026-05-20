@@ -26,10 +26,14 @@ export class rwbyActorSheet extends ActorSheet {
 
   /** @override */
   get template() {
+    let suffix = "";
+    if ( !game.user.isGM && this.actor.limited ) {
+      suffix = "-limited";
+    }
     if (this.actor.type == "opponent") {
-      return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-character-sheet.hbs`;
+      return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-character-sheet${suffix}.hbs`;
     } else {
-      return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-${this.actor.type}-sheet.hbs`;
+      return `systems/rwby-unofficial-tabletop-remix/templates/actor/actor-${this.actor.type}-sheet${suffix}.hbs`;
     }
   }
 

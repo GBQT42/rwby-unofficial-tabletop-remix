@@ -1,0 +1,9 @@
+<form class="{{cssClass}} {{actor.type}} flexrow" autocomplete="off">
+  <img class="profile-img" src="{{actor.img}}" title="{{actor.name}}" style="max-height:100%;max-width:60%;
+            display: block;
+            margin: 0 0 auto 0;"/>
+
+  {{editor system.biography target="system.biography" rollData=rollData button=true owner=owner editable=editable}}
+</form>
+
+{{log system}}
